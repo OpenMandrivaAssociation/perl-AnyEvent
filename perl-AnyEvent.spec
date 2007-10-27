@@ -5,12 +5,12 @@
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
-Version:   1.02
-Release:   %mkrel 2
+Version:   2.54
+Release:   %mkrel 1
 License:   Artistic
 Group:     Development/Perl
-URL:       http://search.cpan.org/src/MLEHMANN/
-SOURCE:    http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/AnyEvent-%version.tar.bz2
+URL:       http://search.cpan.org/~mlehmann/AnyEvent-2.54/lib/AnyEvent.pm
+SOURCE:    http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/AnyEvent-%version.tar.gz
 Buildroot: %{_tmppath}/%{name}-%{version}-%(id -u -n)
 Buildarch: noarch
 BuildRequires: perl-devel
@@ -76,6 +76,7 @@ find %{buildroot}%{_prefix}             \
 %dir %{perl_vendorlib}/AnyEvent/Impl
 %{perl_vendorlib}/AnyEvent/Impl/Event.pm
 %{perl_vendorlib}/AnyEvent/Impl/Glib.pm
+%{perl_vendorlib}/AnyEvent/Impl/Perl.pm
 %_mandir/man3/AnyEvent.3pm*
 
 %files Coro
