@@ -5,11 +5,12 @@
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
-Version:   2.54
+Version:   2.8
 Release:   %mkrel 1
+Epoch: 1
 License:   Artistic
 Group:     Development/Perl
-URL:       http://search.cpan.org/~mlehmann/AnyEvent-2.54/lib/AnyEvent.pm
+URL:       http://search.cpan.org/~mlehmann/AnyEvent/lib/AnyEvent.pm
 SOURCE:    http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/AnyEvent-%version.tar.gz
 Buildroot: %{_tmppath}/%{name}-%{version}-%(id -u -n)
 Buildarch: noarch
@@ -26,6 +27,22 @@ Summary: Provide framework for multiple event loops - Coro integration
 %description Coro
 AnyEvent - provide framework for multiple event loops
 Coro event loop integration
+
+%package EV
+Group: Development/Perl
+Summary: Provide framework for multiple event loops - EV integration
+%description EV
+AnyEvent - provide framework for multiple event loops
+EV event loop integration
+
+
+%package Coro-EV
+Group: Development/Perl
+Summary: Provide framework for multiple event loops - Coro::EV integration
+%description Coro-EV
+AnyEvent - provide framework for multiple event loops
+Coro::EV event loop integration
+
 
 %package Tk
 Group: Development/Perl
@@ -79,9 +96,19 @@ find %{buildroot}%{_prefix}             \
 %{perl_vendorlib}/AnyEvent/Impl/Perl.pm
 %_mandir/man3/AnyEvent.3pm*
 
+%files EV
+%defattr(-,root,root)
+%{perl_vendorlib}/AnyEvent/Impl/EV.pm
+%_mandir/man3/AnyEvent::Impl::EV.3pm*
+
 %files Coro
 %defattr(-,root,root)
 %{perl_vendorlib}/AnyEvent/Impl/Coro.pm
+
+%files Coro-EV
+%defattr(-,root,root)
+%{perl_vendorlib}/AnyEvent/Impl/CoroEV.pm
+
 
 %files Tk
 %defattr(-,root,root)
