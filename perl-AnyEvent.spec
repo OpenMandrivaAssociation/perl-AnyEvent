@@ -6,7 +6,7 @@
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
 Version:   2.8
-Release:   %mkrel 1
+Release:   %mkrel 2
 Epoch: 1
 License:   Artistic
 Group:     Development/Perl
@@ -81,6 +81,8 @@ find %{buildroot}%{_prefix}             \
     -type d -depth                      \
     -exec rmdir {} \; 2>/dev/null
 
+#gw we don't ship perl-Coro-EV at the moment
+rm -f %buildroot%{perl_vendorlib}/AnyEvent/Impl/CoroEV.pm
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
@@ -105,9 +107,9 @@ find %{buildroot}%{_prefix}             \
 %defattr(-,root,root)
 %{perl_vendorlib}/AnyEvent/Impl/Coro.pm
 
-%files Coro-EV
-%defattr(-,root,root)
-%{perl_vendorlib}/AnyEvent/Impl/CoroEV.pm
+#%files Coro-EV
+#%defattr(-,root,root)
+#%{perl_vendorlib}/AnyEvent/Impl/CoroEV.pm
 
 
 %files Tk
