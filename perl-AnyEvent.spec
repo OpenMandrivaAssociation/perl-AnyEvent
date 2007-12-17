@@ -12,7 +12,6 @@ License:   Artistic
 Group:     Development/Perl
 URL:       http://search.cpan.org/~mlehmann/AnyEvent/lib/AnyEvent.pm
 SOURCE:    http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/AnyEvent-%version.tar.gz
-Buildroot: %{_tmppath}/%{name}-%{version}-%(id -u -n)
 Buildarch: noarch
 BuildRequires: perl-devel
 BuildRequires: perl-Event
