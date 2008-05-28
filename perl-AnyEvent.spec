@@ -5,8 +5,8 @@
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
-Version:   2.8
-Release:   %mkrel 2
+Version:   4.05
+Release:   %mkrel 1
 Epoch: 1
 License:   Artistic
 Group:     Development/Perl
@@ -19,14 +19,7 @@ BuildRequires: perl-Event
 
 %description
 AnyEvent - provide framework for multiple event loops
-Event, Coro, Glib, Tk - various supported event loops
-
-%package Coro
-Group: Development/Perl
-Summary: Provide framework for multiple event loops - Coro integration
-%description Coro
-AnyEvent - provide framework for multiple event loops
-Coro event loop integration
+Event, Glib, Tk, Perl, - various supported event loops
 
 %package EV
 Group: Development/Perl
@@ -35,13 +28,20 @@ Summary: Provide framework for multiple event loops - EV integration
 AnyEvent - provide framework for multiple event loops
 EV event loop integration
 
-
-%package Coro-EV
+%package Event-Lib
 Group: Development/Perl
-Summary: Provide framework for multiple event loops - Coro::EV integration
-%description Coro-EV
+Summary: Provide framework for multiple event loops - Event::Lib integration
+%description Event-Lib
 AnyEvent - provide framework for multiple event loops
-Coro::EV event loop integration
+Event::Lib event loop integration
+
+
+%package Qt
+Group: Development/Perl
+Summary: Provide framework for multiple event loops - Qt integration
+%description Qt
+AnyEvent - provide framework for multiple event loops
+Qt event loop integration
 
 
 %package Tk
@@ -50,6 +50,14 @@ Summary: Provide framework for multiple event loops - Tk integration
 %description Tk
 AnyEvent - provide framework for multiple event loops
 Tk event loop integration
+
+%package POE
+Group: Development/Perl
+Summary: Provide framework for multiple event loops - POE integration
+%description POE
+AnyEvent - provide framework for multiple event loops
+POE event loop integration
+
 
 %prep
 %setup -q -n %{pkgname}-%{version} 
@@ -81,8 +89,6 @@ find %{buildroot}%{_prefix}             \
     -type d -depth                      \
     -exec rmdir {} \; 2>/dev/null
 
-#gw we don't ship perl-Coro-EV at the moment
-rm -f %buildroot%{perl_vendorlib}/AnyEvent/Impl/CoroEV.pm
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
@@ -93,28 +99,48 @@ rm -f %buildroot%{perl_vendorlib}/AnyEvent/Impl/CoroEV.pm
 %{perl_vendorlib}/AnyEvent.pm
 %dir %{perl_vendorlib}/AnyEvent
 %dir %{perl_vendorlib}/AnyEvent/Impl
+%{perl_vendorlib}/AnyEvent/DNS.pm
+%{perl_vendorlib}/AnyEvent/Handle.pm
+%{perl_vendorlib}/AnyEvent/Socket.pm
+%{perl_vendorlib}/AnyEvent/Util.pm
 %{perl_vendorlib}/AnyEvent/Impl/Event.pm
 %{perl_vendorlib}/AnyEvent/Impl/Glib.pm
 %{perl_vendorlib}/AnyEvent/Impl/Perl.pm
 %_mandir/man3/AnyEvent.3pm*
+%_mandir/man3/AnyEvent::DNS*
+%_mandir/man3/AnyEvent::Handle*
+%_mandir/man3/AnyEvent::Socket.*
+%_mandir/man3/AnyEvent::Util.*
+%_mandir/man3/AnyEvent::Impl::Event.*
+%_mandir/man3/AnyEvent::Impl::Glib.*
+%_mandir/man3/AnyEvent::Impl::Perl*
+
+
 
 %files EV
 %defattr(-,root,root)
 %{perl_vendorlib}/AnyEvent/Impl/EV.pm
 %_mandir/man3/AnyEvent::Impl::EV.3pm*
 
-%files Coro
+%files Event-Lib
 %defattr(-,root,root)
-%{perl_vendorlib}/AnyEvent/Impl/Coro.pm
-
-#%files Coro-EV
-#%defattr(-,root,root)
-#%{perl_vendorlib}/AnyEvent/Impl/CoroEV.pm
-
+%{perl_vendorlib}/AnyEvent/Impl/EventLib.pm
+%_mandir/man3/AnyEvent::Impl::EventLib.3pm*
 
 %files Tk
 %defattr(-,root,root)
 %{perl_vendorlib}/AnyEvent/Impl/Tk.pm
+%_mandir/man3/AnyEvent::Impl::Tk*
+
+%files POE
+%defattr(-,root,root)
+%{perl_vendorlib}/AnyEvent/Impl/POE.pm
+%_mandir/man3/AnyEvent::Impl::POE*
+
+%files Qt
+%defattr(-,root,root)
+%{perl_vendorlib}/AnyEvent/Impl/Qt.pm
+%_mandir/man3/AnyEvent::Impl::Qt*
 
 
 
