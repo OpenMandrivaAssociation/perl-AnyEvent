@@ -5,7 +5,7 @@
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
-Version:   4.05
+Version:   4.151
 Release:   %mkrel 1
 Epoch: 1
 License:   Artistic
@@ -102,6 +102,7 @@ find %{buildroot}%{_prefix}             \
 %{perl_vendorlib}/AnyEvent/DNS.pm
 %{perl_vendorlib}/AnyEvent/Handle.pm
 %{perl_vendorlib}/AnyEvent/Socket.pm
+%{perl_vendorlib}/AnyEvent/Intro.pod
 %{perl_vendorlib}/AnyEvent/Util.pm
 %{perl_vendorlib}/AnyEvent/Impl/Event.pm
 %{perl_vendorlib}/AnyEvent/Impl/Glib.pm
@@ -111,6 +112,7 @@ find %{buildroot}%{_prefix}             \
 %_mandir/man3/AnyEvent::Handle*
 %_mandir/man3/AnyEvent::Socket.*
 %_mandir/man3/AnyEvent::Util.*
+%_mandir/man3/AnyEvent::Intro.*
 %_mandir/man3/AnyEvent::Impl::Event.*
 %_mandir/man3/AnyEvent::Impl::Glib.*
 %_mandir/man3/AnyEvent::Impl::Perl*
