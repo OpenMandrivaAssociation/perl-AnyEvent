@@ -6,7 +6,7 @@
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
 Version:   4.151
-Release:   %mkrel 1
+Release:   %mkrel 2
 Epoch: 1
 License:   Artistic
 Group:     Development/Perl
@@ -89,6 +89,8 @@ find %{buildroot}%{_prefix}             \
     -type d -depth                      \
     -exec rmdir {} \; 2>/dev/null
 
+#gw perl-Qt is not available:
+rm -f %buildroot{%{perl_vendorlib}/AnyEvent/Impl/Qt.pm,%_mandir/man3/AnyEvent::Impl::Qt*}
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
@@ -139,10 +141,10 @@ find %{buildroot}%{_prefix}             \
 %{perl_vendorlib}/AnyEvent/Impl/POE.pm
 %_mandir/man3/AnyEvent::Impl::POE*
 
-%files Qt
-%defattr(-,root,root)
-%{perl_vendorlib}/AnyEvent/Impl/Qt.pm
-%_mandir/man3/AnyEvent::Impl::Qt*
+#%files Qt
+#%defattr(-,root,root)
+#%{perl_vendorlib}/AnyEvent/Impl/Qt.pm
+#%_mandir/man3/AnyEvent::Impl::Qt*
 
 
 
