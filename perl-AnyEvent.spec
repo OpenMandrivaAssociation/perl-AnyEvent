@@ -5,12 +5,12 @@
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
-Version:   4.231
+Version:   4.31
 Release:   %mkrel 1
 Epoch: 1
 License:   Artistic
 Group:     Development/Perl
-URL:       http://search.cpan.org/~mlehmann/AnyEvent/lib/AnyEvent.pm
+URL:       http://search.cpan.org/~mlehmann/AnyEvent/
 SOURCE:    http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/AnyEvent-%version.tar.gz
 Buildroot: %{_tmppath}/%{name}-%{version}-%(id -u -n)
 Buildarch: noarch
@@ -89,9 +89,6 @@ find %{buildroot}%{_prefix}             \
     -type d -depth                      \
     -exec rmdir {} \; 2>/dev/null
 
-#gw perl-Qt is not available:
-rm -f %buildroot{%{perl_vendorlib}/AnyEvent/Impl/Qt.pm,%_mandir/man3/AnyEvent::Impl::Qt*}
-
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
@@ -143,10 +140,10 @@ rm -f %buildroot{%{perl_vendorlib}/AnyEvent/Impl/Qt.pm,%_mandir/man3/AnyEvent::I
 %{perl_vendorlib}/AnyEvent/Impl/POE.pm
 %_mandir/man3/AnyEvent::Impl::POE*
 
-#%files Qt
-#%defattr(-,root,root)
-#%{perl_vendorlib}/AnyEvent/Impl/Qt.pm
-#%_mandir/man3/AnyEvent::Impl::Qt*
+%files Qt
+%defattr(-,root,root)
+%{perl_vendorlib}/AnyEvent/Impl/Qt.pm
+%_mandir/man3/AnyEvent::Impl::Qt*
 
 
 
