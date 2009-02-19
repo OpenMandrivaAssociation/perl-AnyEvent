@@ -5,9 +5,9 @@
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
-Version:   4.331
+Version:   4.34
 Release:   %mkrel 1
-Epoch: 2
+Epoch: 3
 License:   Artistic
 Group:     Development/Perl
 URL:       http://search.cpan.org/~mlehmann/AnyEvent/
