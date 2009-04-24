@@ -5,7 +5,7 @@
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
-Version:   4.34
+Version:   4.35
 Release:   %mkrel 1
 Epoch: 3
 License:   Artistic
