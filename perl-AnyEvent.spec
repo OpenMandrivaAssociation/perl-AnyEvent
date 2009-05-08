@@ -3,7 +3,7 @@
 %define maketest 1
 %define oversion 4.4
 
-%define perl_convert_version() %(perl -Mversion -le '$v=version->new(%{1})->normal; % $v=~s/^v//; print $v')
+%define perl_convert_version() %(perl -Mversion -le '$v=version->new(%{1})->normal; $v=~s/^v//; print $v')
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
