@@ -1,8 +1,9 @@
 %define pkgname AnyEvent
 %define filelist %{pkgname}-%{version}-filelist
-%define NVR %{pkgname}-%{version}-%{release}
 %define maketest 1
 %define oversion 4.4
+
+%define perl_convert_version() %(perl -Mversion -E '$v=version->new(%{1})->normal; $v=~s/^v//; say $v')
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
