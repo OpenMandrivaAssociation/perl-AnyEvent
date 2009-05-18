@@ -1,7 +1,7 @@
 %define pkgname AnyEvent
 %define filelist %{pkgname}-%{version}-filelist
 %define maketest 1
-%define oversion 4.4
+%define oversion 4.41
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
