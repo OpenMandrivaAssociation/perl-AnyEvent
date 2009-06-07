@@ -1,17 +1,17 @@
 %define pkgname AnyEvent
 %define filelist %{pkgname}-%{version}-filelist
 %define maketest 1
-%define oversion 4.41
+%define upstream_version 4.41
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
-Version:   %perl_convert_version %oversion
+Version:   %perl_convert_version %upstream_version
 Release:   %mkrel 1
 Epoch: 3
 License:   Artistic
 Group:     Development/Perl
 URL:       http://search.cpan.org/~mlehmann/AnyEvent/
-SOURCE:    http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/AnyEvent-%oversion.tar.gz
+SOURCE:    http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/AnyEvent-%upstream_version.tar.gz
 Buildroot: %{_tmppath}/%{name}-%{version}-%(id -u -n)
 Buildarch: noarch
 BuildRequires: perl-devel
@@ -60,8 +60,8 @@ POE event loop integration
 
 
 %prep
-%setup -q -n %{pkgname}-%{oversion} 
-chmod -R u+w %{_builddir}/%{pkgname}-%{oversion}
+%setup -q -n %{pkgname}-%{upstream_version} 
+chmod -R u+w %{_builddir}/%{pkgname}-%{upstream_version}
 
 %build
 grep -rsl '^#!.*perl' . |
