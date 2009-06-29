@@ -1,7 +1,7 @@
 %define pkgname AnyEvent
 %define filelist %{pkgname}-%{version}-filelist
 %define maketest 1
-%define upstream_version 4.411
+%define upstream_version 4.42
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
@@ -57,6 +57,13 @@ Summary: Provide framework for multiple event loops - POE integration
 %description POE
 AnyEvent - provide framework for multiple event loops
 POE event loop integration
+
+%package IOAsync
+Group: Development/Perl
+Summary: Provide framework for multiple event loops - IO::Async integration
+%description IOAsync
+AnyEvent - provide framework for multiple event loops
+IO::Async event loop integration
 
 
 %prep
@@ -139,6 +146,11 @@ find %{buildroot}%{_prefix}             \
 %defattr(-,root,root)
 %{perl_vendorlib}/AnyEvent/Impl/POE.pm
 %_mandir/man3/AnyEvent::Impl::POE*
+
+%files IOAsync
+%defattr(-,root,root)
+%{perl_vendorlib}/AnyEvent/Impl/IOAsync.pm
+%_mandir/man3/AnyEvent::Impl::IOAsync*
 
 %files Qt
 %defattr(-,root,root)
