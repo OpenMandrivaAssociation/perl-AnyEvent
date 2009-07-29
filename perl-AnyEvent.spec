@@ -1,12 +1,12 @@
 %define pkgname AnyEvent
 %define filelist %{pkgname}-%{version}-filelist
 %define maketest 1
-%define upstream_version 4.86
+%define upstream_version 4.881
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
 Version:   %perl_convert_version %upstream_version
-Release:   %mkrel 2
+Release:   %mkrel 1
 Epoch: 3
 License:   Artistic
 Group:     Development/Perl
@@ -64,6 +64,13 @@ Summary: Provide framework for multiple event loops - IO::Async integration
 %description IOAsync
 AnyEvent - provide framework for multiple event loops
 IO::Async event loop integration
+
+%package Irssi
+Group: Development/Perl
+Summary: Provide framework for multiple event loops - Irssi integration
+%description Irssi
+AnyEvent - provide framework for multiple event loops
+Irssi event loop integration
 
 
 %prep
@@ -153,6 +160,11 @@ find %{buildroot}%{_prefix}             \
 %defattr(-,root,root)
 %{perl_vendorlib}/AnyEvent/Impl/IOAsync.pm
 %_mandir/man3/AnyEvent::Impl::IOAsync*
+
+%files Irssi
+%defattr(-,root,root)
+%{perl_vendorlib}/AnyEvent/Impl/Irssi.pm
+%_mandir/man3/AnyEvent::Impl::Irssi*
 
 %files Qt
 %defattr(-,root,root)
