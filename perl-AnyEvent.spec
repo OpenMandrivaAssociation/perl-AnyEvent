@@ -6,7 +6,7 @@
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
 Version:   %perl_convert_version %upstream_version
-Release:   %mkrel 1
+Release:   %mkrel 2
 Epoch: 3
 License:   Artistic
 Group:     Development/Perl
@@ -34,15 +34,6 @@ Summary: Provide framework for multiple event loops - Event::Lib integration
 %description Event-Lib
 AnyEvent - provide framework for multiple event loops
 Event::Lib event loop integration
-
-
-%package Qt
-Group: Development/Perl
-Summary: Provide framework for multiple event loops - Qt integration
-%description Qt
-AnyEvent - provide framework for multiple event loops
-Qt event loop integration
-
 
 %package Tk
 Group: Development/Perl
@@ -102,6 +93,10 @@ find %{buildroot} -name "perllocal.pod" \
 find %{buildroot}%{_prefix}             \
     -type d -depth                      \
     -exec rmdir {} \; 2>/dev/null
+
+#we don't have perl-Qt anymore:
+rm -f %buildroot%{perl_vendorlib}/AnyEvent/Impl/Qt.pm
+rm -f %buildroot%_mandir/man3/AnyEvent::Impl::Qt*
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
@@ -169,11 +164,6 @@ find %{buildroot}%{_prefix}             \
 %defattr(-,root,root)
 %{perl_vendorlib}/AnyEvent/Impl/Irssi.pm
 %_mandir/man3/AnyEvent::Impl::Irssi*
-
-%files Qt
-%defattr(-,root,root)
-%{perl_vendorlib}/AnyEvent/Impl/Qt.pm
-%_mandir/man3/AnyEvent::Impl::Qt*
 
 
 
