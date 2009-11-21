@@ -1,7 +1,7 @@
 %define pkgname AnyEvent
 %define filelist %{pkgname}-%{version}-filelist
 %define maketest 1
-%define upstream_version 5.202
+%define upstream_version 5.21
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
