@@ -120,6 +120,7 @@ rm -f %buildroot%_mandir/man3/AnyEvent::Impl::Qt*
 %{perl_vendorlib}/AnyEvent/Impl/Event.pm
 %{perl_vendorlib}/AnyEvent/Impl/Glib.pm
 %{perl_vendorlib}/AnyEvent/Impl/Perl.pm
+%{perl_vendorlib}/AnyEvent/constants.pl
 %_mandir/man3/AE.3pm*
 %_mandir/man3/AnyEvent.3pm*
 %_mandir/man3/AnyEvent::Debug*
