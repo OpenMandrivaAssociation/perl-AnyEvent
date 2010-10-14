@@ -1,7 +1,7 @@
 %define pkgname AnyEvent
 %define filelist %{pkgname}-%{version}-filelist
 %define maketest 1
-%define upstream_version 5.271
+%define upstream_version 5.28
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
@@ -110,6 +110,7 @@ rm -f %buildroot%_mandir/man3/AnyEvent::Impl::Qt*
 %dir %{perl_vendorlib}/AnyEvent/Impl
 %{perl_vendorlib}/AnyEvent/Debug.pm
 %{perl_vendorlib}/AnyEvent/DNS.pm
+%{perl_vendorlib}/AnyEvent/FAQ.pod
 %{perl_vendorlib}/AnyEvent/Handle.pm
 %{perl_vendorlib}/AnyEvent/Socket.pm
 %{perl_vendorlib}/AnyEvent/Strict.pm
@@ -125,6 +126,7 @@ rm -f %buildroot%_mandir/man3/AnyEvent::Impl::Qt*
 %_mandir/man3/AnyEvent.3pm*
 %_mandir/man3/AnyEvent::Debug*
 %_mandir/man3/AnyEvent::DNS*
+%_mandir/man3/AnyEvent::FAQ*
 %_mandir/man3/AnyEvent::Handle*
 %_mandir/man3/AnyEvent::Socket.*
 %_mandir/man3/AnyEvent::Strict.*
