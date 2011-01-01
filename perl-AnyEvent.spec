@@ -1,7 +1,7 @@
 %define pkgname AnyEvent
 %define filelist %{pkgname}-%{version}-filelist
 %define maketest 1
-%define upstream_version 5.29
+%define upstream_version 5.3
 
 Name:      perl-%pkgname
 Summary:   Provide framework for multiple event loops
@@ -13,7 +13,6 @@ Group:     Development/Perl
 URL:       http://search.cpan.org/~mlehmann/AnyEvent/
 SOURCE:    http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/AnyEvent-%upstream_version.tar.gz
 Buildroot: %{_tmppath}/%{name}-%{version}-%(id -u -n)
-Buildarch: noarch
 BuildRequires: perl-devel
 BuildRequires: perl-Event
 
@@ -95,8 +94,12 @@ find %{buildroot}%{_prefix}             \
     -exec rmdir {} \; 2>/dev/null
 
 #we don't have perl-Qt anymore:
-rm -f %buildroot%{perl_vendorlib}/AnyEvent/Impl/Qt.pm
+rm -f %buildroot%{perl_vendorarch}/AnyEvent/Impl/Qt.pm
 rm -f %buildroot%_mandir/man3/AnyEvent::Impl::Qt*
+#only for Mac:
+rm -f %buildroot%{perl_vendorarch}/AnyEvent/Impl/Cocoa.pm
+rm -f %buildroot%_mandir/man3/AnyEvent::Impl::Cocoa*
+
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
@@ -104,24 +107,24 @@ rm -f %buildroot%_mandir/man3/AnyEvent::Impl::Qt*
 %files
 %defattr(-,root,root)
 %doc README Changes
-%{perl_vendorlib}/AE.pm
-%{perl_vendorlib}/AnyEvent.pm
-%dir %{perl_vendorlib}/AnyEvent
-%dir %{perl_vendorlib}/AnyEvent/Impl
-%{perl_vendorlib}/AnyEvent/Debug.pm
-%{perl_vendorlib}/AnyEvent/DNS.pm
-%{perl_vendorlib}/AnyEvent/FAQ.pod
-%{perl_vendorlib}/AnyEvent/Handle.pm
-%{perl_vendorlib}/AnyEvent/Socket.pm
-%{perl_vendorlib}/AnyEvent/Strict.pm
-%{perl_vendorlib}/AnyEvent/Intro.pod
-%{perl_vendorlib}/AnyEvent/TLS.pm
-%{perl_vendorlib}/AnyEvent/Util.pm
-%{perl_vendorlib}/AnyEvent/Util/
-%{perl_vendorlib}/AnyEvent/Impl/Event.pm
-%{perl_vendorlib}/AnyEvent/Impl/Glib.pm
-%{perl_vendorlib}/AnyEvent/Impl/Perl.pm
-%{perl_vendorlib}/AnyEvent/constants.pl
+%{perl_vendorarch}/AE.pm
+%{perl_vendorarch}/AnyEvent.pm
+%dir %{perl_vendorarch}/AnyEvent
+%dir %{perl_vendorarch}/AnyEvent/Impl
+%{perl_vendorarch}/AnyEvent/Debug.pm
+%{perl_vendorarch}/AnyEvent/DNS.pm
+%{perl_vendorarch}/AnyEvent/FAQ.pod
+%{perl_vendorarch}/AnyEvent/Handle.pm
+%{perl_vendorarch}/AnyEvent/Socket.pm
+%{perl_vendorarch}/AnyEvent/Strict.pm
+%{perl_vendorarch}/AnyEvent/Intro.pod
+%{perl_vendorarch}/AnyEvent/TLS.pm
+%{perl_vendorarch}/AnyEvent/Util.pm
+%{perl_vendorarch}/AnyEvent/Util/
+%{perl_vendorarch}/AnyEvent/Impl/Event.pm
+%{perl_vendorarch}/AnyEvent/Impl/Glib.pm
+%{perl_vendorarch}/AnyEvent/Impl/Perl.pm
+%{perl_vendorarch}/AnyEvent/constants.pl
 %_mandir/man3/AE.3pm*
 %_mandir/man3/AnyEvent.3pm*
 %_mandir/man3/AnyEvent::Debug*
@@ -141,32 +144,32 @@ rm -f %buildroot%_mandir/man3/AnyEvent::Impl::Qt*
 
 %files EV
 %defattr(-,root,root)
-%{perl_vendorlib}/AnyEvent/Impl/EV.pm
+%{perl_vendorarch}/AnyEvent/Impl/EV.pm
 %_mandir/man3/AnyEvent::Impl::EV.3pm*
 
 %files Event-Lib
 %defattr(-,root,root)
-%{perl_vendorlib}/AnyEvent/Impl/EventLib.pm
+%{perl_vendorarch}/AnyEvent/Impl/EventLib.pm
 %_mandir/man3/AnyEvent::Impl::EventLib.3pm*
 
 %files Tk
 %defattr(-,root,root)
-%{perl_vendorlib}/AnyEvent/Impl/Tk.pm
+%{perl_vendorarch}/AnyEvent/Impl/Tk.pm
 %_mandir/man3/AnyEvent::Impl::Tk*
 
 %files POE
 %defattr(-,root,root)
-%{perl_vendorlib}/AnyEvent/Impl/POE.pm
+%{perl_vendorarch}/AnyEvent/Impl/POE.pm
 %_mandir/man3/AnyEvent::Impl::POE*
 
 %files IOAsync
 %defattr(-,root,root)
-%{perl_vendorlib}/AnyEvent/Impl/IOAsync.pm
+%{perl_vendorarch}/AnyEvent/Impl/IOAsync.pm
 %_mandir/man3/AnyEvent::Impl::IOAsync*
 
 %files Irssi
 %defattr(-,root,root)
-%{perl_vendorlib}/AnyEvent/Impl/Irssi.pm
+%{perl_vendorarch}/AnyEvent/Impl/Irssi.pm
 %_mandir/man3/AnyEvent::Impl::Irssi*
 
 
