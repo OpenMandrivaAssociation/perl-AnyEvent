@@ -96,6 +96,9 @@ find %{buildroot}%{_prefix}             \
 #we don't have perl-Qt anymore:
 rm -f %buildroot%{perl_vendorarch}/AnyEvent/Impl/Qt.pm
 rm -f %buildroot%_mandir/man3/AnyEvent::Impl::Qt*
+#we don't have perl-FLTK (yet):
+rm -f %buildroot%{perl_vendorarch}/AnyEvent/Impl/FLTK.pm
+rm -f %buildroot%_mandir/man3/AnyEvent::Impl::FLTK*
 #only for Mac:
 rm -f %buildroot%{perl_vendorarch}/AnyEvent/Impl/Cocoa.pm
 rm -f %buildroot%_mandir/man3/AnyEvent::Impl::Cocoa*
@@ -115,6 +118,8 @@ rm -f %buildroot%_mandir/man3/AnyEvent::Impl::Cocoa*
 %{perl_vendorarch}/AnyEvent/DNS.pm
 %{perl_vendorarch}/AnyEvent/FAQ.pod
 %{perl_vendorarch}/AnyEvent/Handle.pm
+%{perl_vendorarch}/AnyEvent/Log.pm
+%{perl_vendorarch}/AnyEvent/Loop.pm
 %{perl_vendorarch}/AnyEvent/Socket.pm
 %{perl_vendorarch}/AnyEvent/Strict.pm
 %{perl_vendorarch}/AnyEvent/Intro.pod
@@ -122,6 +127,7 @@ rm -f %buildroot%_mandir/man3/AnyEvent::Impl::Cocoa*
 %{perl_vendorarch}/AnyEvent/Util.pm
 %{perl_vendorarch}/AnyEvent/Util/
 %{perl_vendorarch}/AnyEvent/Impl/Event.pm
+#%{perl_vendorarch}/AnyEvent/Impl/FLTK.pm
 %{perl_vendorarch}/AnyEvent/Impl/Glib.pm
 %{perl_vendorarch}/AnyEvent/Impl/Perl.pm
 %{perl_vendorarch}/AnyEvent/constants.pl
@@ -136,8 +142,11 @@ rm -f %buildroot%_mandir/man3/AnyEvent::Impl::Cocoa*
 %_mandir/man3/AnyEvent::Util.*
 %_mandir/man3/AnyEvent::Intro.*
 %_mandir/man3/AnyEvent::Impl::Event.*
+#%_mandir/man3/AnyEvent::Impl::FLTK.*
 %_mandir/man3/AnyEvent::Impl::Glib.*
 %_mandir/man3/AnyEvent::Impl::Perl*
+%_mandir/man3/AnyEvent::Log.*
+%_mandir/man3/AnyEvent::Loop.*
 %_mandir/man3/AnyEvent::TLS*
 
 
