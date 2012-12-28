@@ -12,6 +12,7 @@ License:	Artistic
 Group:		Development/Perl
 URL:		http://search.cpan.org/~mlehmann/AnyEvent/
 Source0:	http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/AnyEvent-%upstream_version.tar.gz
+Source1:	perl-AnyEvent.rpmlintrc
 BuildRequires:	perl-devel
 BuildRequires:	perl-Event
 
