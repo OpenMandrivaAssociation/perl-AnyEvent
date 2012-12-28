@@ -125,6 +125,8 @@ rm -f %{buildroot}%{_mandir}/man3/AnyEvent::Impl::Cocoa*
 %{perl_vendorarch}/AnyEvent/TLS.pm
 %{perl_vendorarch}/AnyEvent/Util.pm
 %{perl_vendorarch}/AnyEvent/Util/
+%{perl_vendorarch}/AnyEvent/IO.pm
+%{perl_vendorarch}/AnyEvent/IO/
 %{perl_vendorarch}/AnyEvent/Impl/Event.pm
 %{perl_vendorarch}/AnyEvent/Impl/Glib.pm
 %{perl_vendorarch}/AnyEvent/Impl/Perl.pm
@@ -139,6 +141,7 @@ rm -f %{buildroot}%{_mandir}/man3/AnyEvent::Impl::Cocoa*
 %{_mandir}/man3/AnyEvent::Strict.*
 %{_mandir}/man3/AnyEvent::Util.*
 %{_mandir}/man3/AnyEvent::Intro.*
+%{_mandir}/man3/AnyEvent::IO*
 %{_mandir}/man3/AnyEvent::Impl::Event.*
 %{_mandir}/man3/AnyEvent::Impl::Glib.*
 %{_mandir}/man3/AnyEvent::Impl::Perl*
