@@ -1,2 +1,3 @@
+---
 sources:
-  "AnyEvent-6.14.tar.gz": 224cac84ad190885266add9cd0fea8a430b824eb
+  AnyEvent-7.04.tar.gz: 305f7c1de2a30b549782721615828f8a8ab15986
