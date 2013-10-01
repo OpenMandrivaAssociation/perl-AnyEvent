@@ -1,3 +1,4 @@
----
-sources:
+removed_sources:
   AnyEvent-7.04.tar.gz: 305f7c1de2a30b549782721615828f8a8ab15986
+sources:
+  AnyEvent-7.05.tar.gz: f9cba07ade472a672b9a676aa57c171243d4e422

@@ -1,19 +1,19 @@
 %define pkgname AnyEvent
 %define filelist %{pkgname}-%{version}-filelist
 %define maketest 1
-%define upstream_version 7.04
+%define upstream_version 7.05
 
 %define __noautoreq 'perl(AnyEvent.*'
 
 Name:		perl-%{pkgname}
 Summary:	Provide framework for multiple event loops
 Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Release:	1
 Epoch:		3
 License:	Artistic
 Group:		Development/Perl
 URL:		http://search.cpan.org/~mlehmann/AnyEvent/
-Source0:	http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/AnyEvent-%upstream_version.tar.gz
+Source0:	http://www.cpan.org/authors/id/M/ML/MLEHMANN/AnyEvent-%{upstream_version}.tar.gz
 Source1:	perl-AnyEvent.rpmlintrc
 BuildRequires:	perl-devel
 BuildRequires:	perl-Event
@@ -428,4 +428,5 @@ rm -f %{buildroot}%{_mandir}/man3/AnyEvent::Impl::Cocoa*
 
 * Tue Apr 04 2006 Götz Waschk <waschk@mandriva.org> 1.02-1mdk
 - initial package
+
 
