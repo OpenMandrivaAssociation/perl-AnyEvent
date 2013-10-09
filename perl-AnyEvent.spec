@@ -79,7 +79,7 @@ chmod -R u+w %{_builddir}/%{pkgname}-%{upstream_version}
 grep -rsl '^#!.*perl' . |
 grep -v '.bak$' |xargs --no-run-if-empty \
 %__perl -MExtUtils::MakeMaker -e 'MY->fixin(@ARGV)'
-CFLAGS="$RPM_OPT_FLAGS"
+CFLAGS="%{optflags}"
 %{__perl} Makefile.PL `%{__perl} -MExtUtils::MakeMaker -e ' print qq|PREFIX=%{buildroot}%{_prefix}| if \$ExtUtils::MakeMaker::VERSION =~ /5\.9[1-6]|6\.0[0-5]/ '` INSTALLDIRS=vendor
 %{make}
 
