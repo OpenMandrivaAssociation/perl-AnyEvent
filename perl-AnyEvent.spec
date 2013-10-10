@@ -3,12 +3,12 @@
 %define maketest 1
 %define upstream_version 7.05
 
-%define __noautoreq 'perl(AnyEvent.*'
+%define __noautoreq 'perl\\(AnyEvent:.*'
 
 Name:		perl-%{pkgname}
 Summary:	Provide framework for multiple event loops
 Version:	%perl_convert_version %{upstream_version}
-Release:	1
+Release:	2
 Epoch:		3
 License:	Artistic
 Group:		Development/Perl
