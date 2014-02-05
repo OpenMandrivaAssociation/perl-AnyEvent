@@ -1,19 +1,19 @@
 %define pkgname AnyEvent
 %define filelist %{pkgname}-%{version}-filelist
 %define maketest 1
-%define upstream_version 7.05
+%define upstream_version 7.07
 
 %define __noautoreq 'perl\\(AnyEvent:.*'
 
 Name:		perl-%{pkgname}
 Summary:	Provide framework for multiple event loops
 Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Release:	1
 Epoch:		3
 License:	Artistic
 Group:		Development/Perl
 URL:		http://search.cpan.org/~mlehmann/AnyEvent/
-Source0:	http://www.cpan.org/authors/id/M/ML/MLEHMANN/AnyEvent-%{upstream_version}.tar.gz
+Source0:	http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/AnyEvent-%{upstream_version}.tar.gz
 Source1:	perl-AnyEvent.rpmlintrc
 BuildRequires:	perl-devel
 BuildRequires:	perl-Event
@@ -81,7 +81,7 @@ grep -v '.bak$' |xargs --no-run-if-empty \
 %__perl -MExtUtils::MakeMaker -e 'MY->fixin(@ARGV)'
 CFLAGS="%{optflags}"
 %{__perl} Makefile.PL `%{__perl} -MExtUtils::MakeMaker -e ' print qq|PREFIX=%{buildroot}%{_prefix}| if \$ExtUtils::MakeMaker::VERSION =~ /5\.9[1-6]|6\.0[0-5]/ '` INSTALLDIRS=vendor
-%{make}
+%make
 
 %check
 make test
@@ -428,5 +428,6 @@ rm -f %{buildroot}%{_mandir}/man3/AnyEvent::Impl::Cocoa*
 
 * Tue Apr 04 2006 Götz Waschk <waschk@mandriva.org> 1.02-1mdk
 - initial package
+
 
 
