@@ -8,7 +8,7 @@
 Name:		perl-%{pkgname}
 Summary:	Provide framework for multiple event loops
 Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Release:	3
 Epoch:		3
 License:	Artistic
 Group:		Development/Perl
