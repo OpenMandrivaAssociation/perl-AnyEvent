@@ -18,6 +18,28 @@ Source1:	perl-AnyEvent.rpmlintrc
 BuildRequires:	perl-devel
 BuildRequires:	perl-Event
 
+# Optional dependencies we don't want to require
+%global optional_deps                  AnyEvent::AIO
+%global optional_deps %{optional_deps}|Cocoa::EventLoop
+%global optional_deps %{optional_deps}|EV
+%global optional_deps %{optional_deps}|Event
+%global optional_deps %{optional_deps}|Event::Lib
+%global optional_deps %{optional_deps}|EventLoop
+%global optional_deps %{optional_deps}|FLTK
+%global optional_deps %{optional_deps}|Glib
+%global optional_deps %{optional_deps}|IO::AIO
+%global optional_deps %{optional_deps}|IO::Async::Loop
+%global optional_deps %{optional_deps}|Irssi
+%global optional_deps %{optional_deps}|POE
+%global optional_deps %{optional_deps}|Qt
+%global optional_deps %{optional_deps}|Qt::isa
+%global optional_deps %{optional_deps}|Qt::slots
+%global optional_deps %{optional_deps}|Tk
+
+# Don't include optional dependencies
+%global __requires_exclude ^perl[(](%{optional_deps})[)]
+
+
 %description
 AnyEvent - provide framework for multiple event loops
 Event, Glib, Tk, Perl, - various supported event loops.
