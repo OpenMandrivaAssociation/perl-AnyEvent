@@ -1,14 +1,14 @@
 %define pkgname AnyEvent
 %define filelist %{pkgname}-%{version}-filelist
 %define maketest 1
-%define upstream_version 7.07
+%define upstream_version 7.15
 
 %define __noautoreq 'perl\\(AnyEvent:.*'
 
 Name:		perl-%{pkgname}
 Summary:	Provide framework for multiple event loops
 Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Release:	1
 Epoch:		3
 License:	Artistic
 Group:		Development/Perl
@@ -81,13 +81,13 @@ grep -v '.bak$' |xargs --no-run-if-empty \
 %__perl -MExtUtils::MakeMaker -e 'MY->fixin(@ARGV)'
 CFLAGS="%{optflags}"
 %{__perl} Makefile.PL `%{__perl} -MExtUtils::MakeMaker -e ' print qq|PREFIX=%{buildroot}%{_prefix}| if \$ExtUtils::MakeMaker::VERSION =~ /5\.9[1-6]|6\.0[0-5]/ '` INSTALLDIRS=vendor
-%make
+%make_build
 
 %check
 make test
 
 %install
-%{makeinstall} `%{__perl} -MExtUtils::MakeMaker -e ' print \$ExtUtils::MakeMaker::VERSION <= 6.05 ? qq|PREFIX=%{buildroot}%{_prefix}| : qq|DESTDIR=%{buildroot}| '`
+%make_install `%{__perl} -MExtUtils::MakeMaker -e ' print \$ExtUtils::MakeMaker::VERSION <= 6.05 ? qq|PREFIX=%{buildroot}%{_prefix}| : qq|DESTDIR=%{buildroot}| '`
 
 # remove special files
 find %{buildroot} -name "perllocal.pod" \
