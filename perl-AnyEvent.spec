@@ -70,6 +70,14 @@ Summary:	Provide framework for multiple event loops - Irssi integration
 AnyEvent - provide framework for multiple event loops
 Irssi event loop integration.
 
+%package UV
+Group:      Development/Perl
+Summary:    Provide framework for multiple event loops - UV integration
+
+%description UV
+AnyEvent - provide framework for multiple event loops
+UV event loop integration
+
 
 %prep
 %setup -q -n %{pkgname}-%{upstream_version}
@@ -172,6 +180,10 @@ rm -f %{buildroot}%{_mandir}/man3/AnyEvent::Impl::Cocoa*
 %files Irssi
 %{perl_vendorarch}/AnyEvent/Impl/Irssi.pm
 %{_mandir}/man3/AnyEvent::Impl::Irssi*
+
+%files UV
+%{perl_vendorarch}/AnyEvent/Impl/UV.pm
+%_mandir/man3/AnyEvent::Impl::UV.3pm*
 
 
 %changelog
