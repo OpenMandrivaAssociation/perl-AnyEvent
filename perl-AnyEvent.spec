@@ -104,7 +104,7 @@ UV event loop integration
 
 
 %prep
-%setup -q -n %{pkgname}-%{upstream_version}
+%autosetup -p1 -n %{pkgname}-%{upstream_version}
 chmod -R u+w %{_builddir}/%{pkgname}-%{upstream_version}
 
 %build
