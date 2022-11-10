@@ -1,7 +1,7 @@
 %define pkgname AnyEvent
 %define filelist %{pkgname}-%{version}-filelist
 %define maketest 1
-%define upstream_version 7.15
+%define upstream_version 7.17
 
 %define __noautoreq 'perl\\(AnyEvent:.*'
 
@@ -12,8 +12,8 @@ Release:	1
 Epoch:		3
 License:	Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/~mlehmann/AnyEvent/
-Source0:	http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/AnyEvent-%{upstream_version}.tar.gz
+URL:		https://search.cpan.org/~mlehmann/AnyEvent/
+Source0:	https://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/AnyEvent-%{upstream_version}.tar.gz
 Source1:	perl-AnyEvent.rpmlintrc
 BuildRequires:	perl-devel
 BuildRequires:	perl-Event
