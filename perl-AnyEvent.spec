@@ -1,3 +1,5 @@
+%define debug_package %{nil}
+
 %define pkgname AnyEvent
 %define filelist %{pkgname}-%{version}-filelist
 %define maketest 1
