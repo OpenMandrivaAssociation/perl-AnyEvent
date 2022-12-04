@@ -33,6 +33,7 @@ BuildRequires:	perl-Event
 %global optional_deps %{optional_deps}|Qt::isa
 %global optional_deps %{optional_deps}|Qt::slots
 %global optional_deps %{optional_deps}|Tk
+%global optional_deps %{optional_deps}|UV
 
 # Don't include optional dependencies
 %global __requires_exclude ^perl[(](%{optional_deps})[)]
